@@ -43,8 +43,6 @@ export default function NewsComponent(props){
         GetNews(setMeta, setNews, pageNum);
     }, []);
 
-    console.log(pageNum);
-    console.log(newsData.totalPages);
     return (
         <div className="News">
             <div className='head'>
@@ -65,9 +63,13 @@ export default function NewsComponent(props){
                 })}
             </div>
             <div className='bottom'>
-                <div className='buttons'>
-                    {(pageNum > 1) ? <button className="pageback" onClick={()=>{setPage(pageNum - 1)}}>←</button> : null}
-                    {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={()=>{setPage(pageNum + 1)}}>→</button> : null}
+                <div className='bfields'>
+                    <div className='pbfield'>
+                        {(pageNum > 1) ? <button className="pageback" onClick={()=>{setPage(pageNum - 1)}}>←</button> : null}
+                    </div>
+                    <div className='pffield'>
+                        {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={()=>{setPage(pageNum + 1)}}>→</button> : null}
+                    </div>
                 </div>
             </div>
         </div>

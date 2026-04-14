@@ -27,22 +27,26 @@
 .headBorder{
     opacity: 50%;
 }
-.buttons{
-    margin-top: 5%;
-    margin-left: 90%;
-    height: 80%;
-    width: 45%;
+
+.bfields{
+    flex-direction: row;
+    display: flex;
+    margin-left: 80%;
+    width: 30%;
 }
 
-.pageback{
+.pbfield{
     font-weight: bold;
     font-size: 200%;
     width: 50%;
+    padding: 15%;
 }
 
-.pagefront{
+.pffield{
     font-weight: bold;
     font-size: 200%;
     width: 50%;
+    padding: 15%;
 }
+
 
