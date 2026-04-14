@@ -1,7 +1,15 @@
 .News{
     background-color: white;
-    width: 50vw;
+    width: 40vw;
     height: 90vh;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 2%;
+}
+
+.headBorder{
+    opacity: 50%;
 }
