@@ -10,15 +10,15 @@
     border-radius: 2%;
 }
 
-.head{
+.Head{
     height: auto;
 }
 
-.content{
+.Content{
     height: 70%;
 }
 
-.bottom{
+.Bottom{
     height: 10%;
     flex-direction: row;
     display: flex;

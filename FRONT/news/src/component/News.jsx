@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Elem from './newselem';
-import './news.css'
+import './News.css'
+import Loader from './skeleton'
 
 async function GetNews(msetter, nsetter, page){
     const promise = fetch(`http://1e14c3489fcb.vps.myjino.ru:5000/api/v1/news/feed/company/short?perPage=3&page=${page}`);
@@ -42,19 +43,25 @@ export default function NewsComponent(props){
     useEffect(()=>{
         GetNews(setMeta, setNews, pageNum);
     }, []);
-
+    if (newsData.length === 0) {
+        return (
+        <div className="News">
+            <Loader/>
+        </div>);
+    }
+    console.log(newsData);
     return (
         <div className="News">
-            <div className='head'>
+            <div className='Head'>
                 <h1>Новости</h1>
                 <h3>{convertDate(newsData.minDatePublication)}</h3>
             </div>
             <hr className='headBorder'></hr>
-            <div className='content'>
+            <div className='Content'> 
                 {newsData.map((content, index)=>{
                     <Elem key={index}
-                        pic={content.pic}
-                        dat={content.publishedAt}
+                        pic={content.cover.images.hd}
+                        publishedAt={content.publishedAt}
                         title={content.title}
                         rubrics={content.rubrics}
                         likeCount={content.likeCount}
@@ -62,7 +69,7 @@ export default function NewsComponent(props){
                     />
                 })}
             </div>
-            <div className='bottom'>
+            <div className='Bottom'>
                 <div className='bfields'>
                     <div className='pbfield'>
                         {(pageNum > 1) ? <button className="pageback" onClick={()=>{setPage(pageNum - 1)}}>←</button> : null}

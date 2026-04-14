@@ -1,0 +1,14 @@
+.NewsElem{
+    flex-direction: row;
+    display: flex;
+}
+
+.elemContent{
+    flex-direction: column;
+    display: flex;
+}
+
+.elemConBottom{
+    flex-direction: row;
+    display: flex;
+}
