@@ -1,6 +1,6 @@
 import fetcher from "./datafetcher";
 
-export default function NewsCompoonent(){
+export default function NewsComponent(){
     let data = fetcher();
     console.log("TEST API EXISTS:\n");
     console.log(data);
