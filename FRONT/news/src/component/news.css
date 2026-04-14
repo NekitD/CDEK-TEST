@@ -27,13 +27,22 @@
 .headBorder{
     opacity: 50%;
 }
+.buttons{
+    margin-top: 5%;
+    margin-left: 90%;
+    height: 80%;
+    width: 45%;
+}
 
 .pageback{
     font-weight: bold;
-    font-size: medium;
+    font-size: 200%;
+    width: 50%;
 }
 
 .pagefront{
     font-weight: bold;
-    font-size: medium;
+    font-size: 200%;
+    width: 50%;
 }
+

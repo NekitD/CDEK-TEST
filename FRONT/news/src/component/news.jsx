@@ -2,14 +2,15 @@ import { useEffect, useState } from 'react'
 import Elem from './newselem';
 import './news.css'
 
-async function GetNews(setter, page){
+async function GetNews(msetter, nsetter, page){
     const promise = fetch(`http://1e14c3489fcb.vps.myjino.ru:5000/api/v1/news/feed/company/short?perPage=3&page=${page}`);
     const answer = await promise;
     const data = await answer.json();
-    setter(data.news);
+    msetter(data);
+    nsetter(data.news);
 }
 
-function convertDate(date) {
+function convertDate() {
     const dateObj = new Date();
     const month = dateObj.getMonth() + 1;
     let mstr = "";
@@ -34,13 +35,16 @@ function convertDate(date) {
 
 export default function NewsComponent(props){
     
+    let [metaData, setMeta] = useState(0)
     let [newsData, setNews] = useState([]);
-    const pageNum = props.pageNum;
+    let pageNum = props.pageNum;
 
     useEffect(()=>{
-        GetNews(setNews, pageNum);
+        GetNews(setMeta, setNews, pageNum);
     }, []);
 
+    console.log(pageNum);
+    console.log(newsData.totalPages);
     return (
         <div className="News">
             <div className='head'>
@@ -61,8 +65,10 @@ export default function NewsComponent(props){
                 })}
             </div>
             <div className='bottom'>
-                {(pageNum > 1) ? <button className="pageback" onClick={pageNum -= 1}>←</button> : null}
-                {(pageNum < newsData.totalPages) ? <button className="pagefront" onClick={pageNum += 1}>→</button> : null}
+                <div className='buttons'>
+                    {(pageNum > 1) ? <button className="pageback" onClick={()=>{pageNum -= 1}}>←</button> : null}
+                    {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={()=>{pageNum += 1}}>→</button> : null}
+                </div>
             </div>
         </div>
     );
