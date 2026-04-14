@@ -7,7 +7,6 @@ export default function NewsElem(props){
             <Date>{props.publishedAt}</Date>
             <h2>{props.title}</h2>
             <div>{props.rubrics}</div>
-            <div>{props.pop}</div>
             <text>{props.likeCount}</text>
             <text>{props.viewCount}</text>
         </div>

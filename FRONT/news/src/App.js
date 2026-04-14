@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
 import NewsComponent from './component/news';
 
 function App() {
   return (
     <div className="App">
-      <NewsComponent/>
+      <NewsComponent pageNum={1}/>
     </div>
   );
 }
