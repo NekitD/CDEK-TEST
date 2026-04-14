@@ -10,6 +10,30 @@
     border-radius: 2%;
 }
 
+.head{
+    height: auto;
+}
+
+.content{
+    height: 70%;
+}
+
+.bottom{
+    height: 10%;
+    flex-direction: row;
+    display: flex;
+}
+
 .headBorder{
     opacity: 50%;
+}
+
+.pageback{
+    font-weight: bold;
+    font-size: medium;
+}
+
+.pagefront{
+    font-weight: bold;
+    font-size: medium;
 }

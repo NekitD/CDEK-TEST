@@ -61,8 +61,8 @@ export default function NewsComponent(props){
                 })}
             </div>
             <div className='bottom'>
-                {(pageNum > 1) ? <button onClick={pageNum -= 1}>←</button> : null}
-                {(pageNum < newsData.totalPages) ? <button onClick={pageNum += 1}>→</button> : null}
+                {(pageNum > 1) ? <button className="pageback" onClick={pageNum -= 1}>←</button> : null}
+                {(pageNum < newsData.totalPages) ? <button className="pagefront" onClick={pageNum += 1}>→</button> : null}
             </div>
         </div>
     );
