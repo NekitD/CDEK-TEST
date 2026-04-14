@@ -37,7 +37,7 @@ export default function NewsComponent(props){
     
     let [metaData, setMeta] = useState(0)
     let [newsData, setNews] = useState([]);
-    let pageNum = props.pageNum;
+    let [pageNum, setPage] = useState(1);
 
     useEffect(()=>{
         GetNews(setMeta, setNews, pageNum);
@@ -66,8 +66,8 @@ export default function NewsComponent(props){
             </div>
             <div className='bottom'>
                 <div className='buttons'>
-                    {(pageNum > 1) ? <button className="pageback" onClick={()=>{pageNum -= 1}}>←</button> : null}
-                    {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={()=>{pageNum += 1}}>→</button> : null}
+                    {(pageNum > 1) ? <button className="pageback" onClick={()=>{setPage(pageNum - 1)}}>←</button> : null}
+                    {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={()=>{setPage(pageNum + 1)}}>→</button> : null}
                 </div>
             </div>
         </div>
