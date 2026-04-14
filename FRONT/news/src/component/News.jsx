@@ -58,7 +58,7 @@ export default function NewsComponent(props){
             </div>
             <hr className='headBorder'></hr>
             <div className='Content'> 
-                {newsData.map((content, index)=>{
+                {newsData.map((content, index)=>(
                     <Elem key={index}
                         pic={content.cover.images.hd}
                         publishedAt={content.publishedAt}
@@ -67,7 +67,7 @@ export default function NewsComponent(props){
                         likeCount={content.likeCount}
                         viewCount={content.viewCount}
                     />
-                })}
+                ))}
             </div>
             <div className='Bottom'>
                 <div className='bfields'>
