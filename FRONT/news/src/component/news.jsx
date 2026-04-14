@@ -1,23 +1,20 @@
 import { useEffect, useState } from 'react'
 import Elem from './newselem';
 
+async function GetNews(setter, page){
+    const promise = fetch(`http://1e14c3489fcb.vps.myjino.ru:5000/api/v1/news/feed/company/short?perPage=3&page=${page}`);
+    const answer = await promise;
+    const data = await answer.json();
+    setter(data.news);
+}
 
-export default function NewsComponent(){
-    let [newsData, newsState] = useState([]);
-    let [pageNum, numState] = useState(1);
-    let [pageCount, countState] = useState(0);
+export default function NewsComponent(props){
     
+    let [newsData, setNews] = useState([]);
+    const pageNum = props.pageNum;
+
     useEffect(()=>{
-        async function GetNews(page){
-            const promise = fetch(`http://1e14c3489fcb.vps.myjino.ru:5000/api/v1/news/feed/company/short?perPage=3&page=${page}`);
-            const answer = await promise;
-            const data = await answer.json();
-            console.log(data);
-            newsState(data.news);
-            countState(data.totalPages);
-            numState(page);
-        }
-        GetNews(pageNum);
+        GetNews(setNews, pageNum);
     }, []);
 
     return (
