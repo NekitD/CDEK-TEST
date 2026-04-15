@@ -4,6 +4,7 @@ import './News.css'
 import Loader from './skeleton'
 
 async function GetNews(msetter, nsetter, page){
+    nsetter([]);
     const promise = fetch(`http://1e14c3489fcb.vps.myjino.ru:5000/api/v1/news/feed/company/short?perPage=3&page=${page}`);
     const answer = await promise;
     const data = await answer.json();
@@ -13,7 +14,7 @@ async function GetNews(msetter, nsetter, page){
 
 function convertMonthYear() {
     const dateObj = new Date();
-    const month = dateObj.getMonth() + 1;
+    const month = dateObj.getMonth();
     let mstr = "";
     switch (month)
     {
@@ -34,15 +35,15 @@ function convertMonthYear() {
     return mstr + " " + year;
 }
 
-function custom_date(d) {
+function convertDate(d) {
     const dat = new Date(d);
-    var custom_months = [ "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря" ];
-    var date = dat.getDate() + " " + custom_months[ dat.getMonth() ];
-    var time = dat.getHours() + ":" + dat.getMinutes();
+    let custom_months = [ "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря" ];
+    let date = dat.getDate() + " " + custom_months[ dat.getMonth() ];
+    let time = dat.getHours() + ":" + dat.getMinutes();
     if(dat.getMinutes()%10 === 0){
         time += "0";
     }
-    return  date + " " +time;
+    return  date + " " + time;
 }
 
 
@@ -61,7 +62,6 @@ export default function NewsComponent(props){
             <Loader/>
         </div>);
     }
-    console.log(newsData);
     return (
         <div className="News">
             <div className='Head'>
@@ -73,7 +73,7 @@ export default function NewsComponent(props){
                 {newsData.map((content, index)=>(
                     <Elem key={index}
                         pic={content.cover.images.hd}
-                        publishedAt={custom_date(content.publishedAt)}
+                        publishedAt={convertDate(content.publishedAt)}
                         title={content.title}
                         rubrics={content.rubrics}
                         likeCount={content.likeCount}
