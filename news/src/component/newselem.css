@@ -1,71 +1,70 @@
-.NewsElem{
+.news-elem{
     flex-direction: row;
     display: flex;
     margin-top: 5%;
 }
 
-.elemContent{
+.news-elem__content{
     flex-direction: column;
     display: flex;
 }
 
-.elemConBottom{
+.news-elem__footer{
     flex-direction: row;
     display: flex;
 }
 
-.elemPic{
+.news-elem__image{
     width: 25%;
     height: 100%;
 }
 
-.elemContent{
+.news-elem__content{
     margin-left: 5%;
     width: 65%;
     height: 100%;
 }
 
-.pubDate{
+.news-elem__date{
     opacity: 50%;
     font-weight: lighter;
     height: 10%;
 }
 
-.title{
+.news-elem__title{
     height: 90%;
 }
 
-
-.elemConMain{
+.news-elem__main{
     height: 90%;
 }
 
-.elemConBottom{
+.news-elem__footer{
     height: 10%;
 }
 
-.elemRubrics{
+.news-elem__rubrics{
     width: 50%;
 }
 
-.elemPopInfo{
+.news-elem__stats{
     width: 50%;
     flex-direction: row;
     display: flex;
 }
 
-.likeButton{
+.news-elem__like-btn{
     width: 25%;
 }
 
-.viewButton{
+.news-elem__view-icon{
     width: 25%;
 }
 
-.likeNum{
+.news-elem__like-count{
     width: 25%;
 }
 
-.viewNum{
+.news-elem__view-count{
     width: 25%;
 }
