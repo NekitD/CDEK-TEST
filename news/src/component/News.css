@@ -40,6 +40,12 @@
     font-size: 200%;
     width: 50%;
     padding: 15%;
+    background-image: url("../../public/arrow-left.svg");
+    background: no-repeat;
+}
+
+.news__button-prev:hover {
+    cursor: pointer;
 }
 
 .news__button-next {
@@ -47,4 +53,10 @@
     font-size: 200%;
     width: 50%;
     padding: 15%;
+    background-image: url("../../public/arrow-right.svg");
+    background: no-repeat;
+}
+
+.news__button-next:hover {
+    cursor: pointer;
 }

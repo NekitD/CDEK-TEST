@@ -78,7 +78,7 @@ export default function NewsComponent(props){
                     (!loading) ?
                         newsData.map((content, index)=>(
                         <Elem key={index}
-                            pic={content.cover.images[0].hd}
+                            pic={content.cover.images[0].l}
                             publishedAt={convertDate(content.publishedAt)}
                             title={content.title}
                             rubrics={content.rubrics}
@@ -91,12 +91,12 @@ export default function NewsComponent(props){
                 <div className='news__buttons'>
                     <div className='news__button-prev'>
                         {(pageNum > 1) ? 
-                        <button className="news__prev-btn" onClick={
-                            ()=>{setPage(pageNum - 1);}}>←</button> : null}
+                        <div className="news__prev-btn" onClick={
+                            ()=>{setPage(pageNum - 1);}}>←</div> : null}
                     </div>
                     <div className='news__button-next'>
-                        {(pageNum < metaData.totalPages) ? <button className="news__next-btn" onClick={
-                            ()=>{setPage(pageNum + 1);}}>→</button> : null}
+                        {(pageNum < metaData.totalPages) ? <div className="news__next-btn" onClick={
+                            ()=>{setPage(pageNum + 1);}}>→</div> : null}
                     </div>
                 </div>
             </div>
