@@ -15,7 +15,7 @@ async function GetNews(msetter, nsetter, lsetter, lmsetter, page){
 
 function convertMonthYear() {
     const dateObj = new Date();
-    const month = dateObj.getMonth();
+    const month = dateObj.getMonth() + 1;
     let mstr = "";
     switch (month)
     {

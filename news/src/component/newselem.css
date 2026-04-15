@@ -52,6 +52,25 @@
     width: 70%;
 }
 
+
+.news-elem__rubrics {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex-wrap: wrap;
+    width: 50%;
+    margin-right: 5%;
+}
+
+.news-elem__rub {
+    background-color: #f0f0f0;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #666;
+}
+
+
 .news-elem__stats{
     width: 30%;
     flex-direction: row;

@@ -11,7 +11,7 @@ export default function NewsElem(props){
             </div>
         );
     }
-
+    console.log(props.rubrics)
     return (
         <div className="news-elem">
             <img className='news-elem__image' src={props.pic}/>
@@ -21,7 +21,15 @@ export default function NewsElem(props){
                     <h2 className='news-elem__title'>{props.title}</h2>
                 </div>
                 <div className='news-elem__footer'>
-                    <div className='news-elem__rubrics'>props.rubrics</div>
+                    <div className='news-elem__rubrics'>
+                        {
+                            (props.rubrics.map((rub, index)=>{
+                                return (<div className='news-elem__rub' key={index}>
+                                    {rub.name}
+                                </div>)
+                            })
+                        )}
+                    </div>
                     <div className='news-elem__stats'>
                         <button className='news-elem__like-btn'/>
                         <text className='news-elem__like-count'>{props.likeCount}</text>
