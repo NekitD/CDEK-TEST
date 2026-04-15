@@ -67,13 +67,13 @@ export default function NewsComponent(props){
     }
 
     return (
-        <div className="News">
-            <div className='Head'>
-                <h1>Новости</h1>
-                <h3>{convertMonthYear(newsData.minDatePublication)}</h3>
+        <div className="news">
+            <div className='news__header'>
+                <h1 className='news__title'>Новости</h1>
+                <h3 className='news__month'>{convertMonthYear(newsData.minDatePublication)}</h3>
             </div>
-            <hr className='headBorder'></hr>
-            <div className='Content'> 
+            <hr className='news__divider'></hr>
+            <div className='news__content'> 
                 {
                     (!loading) ?
                         newsData.map((content, index)=>(
@@ -86,17 +86,16 @@ export default function NewsComponent(props){
                             viewCount={content.viewCount}
                         />
                     )) : (<Loader/>)}
-
             </div>
-            <div className='Bottom'>
-                <div className='bfields'>
-                    <div className='pbfield'>
+            <div className='news__footer'>
+                <div className='news__buttons'>
+                    <div className='news__button-prev'>
                         {(pageNum > 1) ? 
-                        <button className="pageback" onClick={
+                        <button className="news__prev-btn" onClick={
                             ()=>{setPage(pageNum - 1);}}>←</button> : null}
                     </div>
-                    <div className='pffield'>
-                        {(pageNum < metaData.totalPages) ? <button className="pagefront" onClick={
+                    <div className='news__button-next'>
+                        {(pageNum < metaData.totalPages) ? <button className="news__next-btn" onClick={
                             ()=>{setPage(pageNum + 1);}}>→</button> : null}
                     </div>
                 </div>

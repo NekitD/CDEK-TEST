@@ -1,4 +1,4 @@
-.News{
+.news {
     background-color: white;
     width: 40vw;
     height: 90vh;
@@ -10,43 +10,41 @@
     border-radius: 2%;
 }
 
-.Head{
+.news__header {
     height: auto;
 }
 
-.Content{
+.news__content {
     height: 70%;
 }
 
-.Bottom{
+.news__footer {
     height: 10%;
     flex-direction: row;
     display: flex;
 }
 
-.headBorder{
+.news__divider {
     opacity: 50%;
 }
 
-.bfields{
+.news__buttons {
     flex-direction: row;
     display: flex;
     margin-left: 80%;
     width: 30%;
 }
 
-.pbfield{
+.news__button-prev {
     font-weight: bold;
     font-size: 200%;
     width: 50%;
     padding: 15%;
 }
 
-.pffield{
+.news__button-next {
     font-weight: bold;
     font-size: 200%;
     width: 50%;
     padding: 15%;
 }
-
-
