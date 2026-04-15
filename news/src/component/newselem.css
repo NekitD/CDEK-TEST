@@ -1,6 +1,7 @@
 .NewsElem{
     flex-direction: row;
     display: flex;
+    margin-top: 5%;
 }
 
 .elemContent{
@@ -11,4 +12,60 @@
 .elemConBottom{
     flex-direction: row;
     display: flex;
+}
+
+.elemPic{
+    width: 25%;
+    height: 100%;
+}
+
+.elemContent{
+    margin-left: 5%;
+    width: 65%;
+    height: 100%;
+}
+
+.pubDate{
+    opacity: 50%;
+    font-weight: lighter;
+    height: 10%;
+}
+
+.title{
+    height: 90%;
+}
+
+
+.elemConMain{
+    height: 90%;
+}
+
+.elemConBottom{
+    height: 10%;
+}
+
+.elemRubrics{
+    width: 50%;
+}
+
+.elemPopInfo{
+    width: 50%;
+    flex-direction: row;
+    display: flex;
+}
+
+.likeButton{
+    width: 25%;
+}
+
+.viewButton{
+    width: 25%;
+}
+
+.likeNum{
+    width: 25%;
+}
+
+.viewNum{
+    width: 25%;
 }

@@ -1,5 +1,6 @@
 import Date from 'react'
 import Loader from './skeleton'
+import './newselem.css'
 
 export default function NewsElem(props){
 
@@ -13,14 +14,20 @@ export default function NewsElem(props){
 
     return (
         <div className="NewsElem">
-            <img>{props.pic}</img>
+            <img className='elemPic' src={props.pic}/>
             <div className='elemContent'>
-                <h4>{props.publishedAt}</h4>
-                <h2>{props.title}</h2>
+                <div className='elemConMain'>
+                    <div className='pubDate'>{props.publishedAt}</div>
+                    <h2 className='title'>{props.title}</h2>
+                </div>
                 <div className='elemConBottom'>
-                    {/* <div>{props.rubrics}</div> */}
-                    <text>{props.likeCount}</text>
-                    <text>{props.viewCount}</text>
+                    <div className='elemRubrics'>props.rubrics</div>
+                    <div className='elemPopInfo'>
+                        <button className='likeButton'/>
+                        <text className='likeNum'>{props.likeCount}</text>
+                        <div className='viewIcon'/>
+                        <text className='viewNum'>{props.viewCount}</text>
+                    </div>
                 </div>
             </div>
         </div>
