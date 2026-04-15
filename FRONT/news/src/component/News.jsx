@@ -11,7 +11,7 @@ async function GetNews(msetter, nsetter, page){
     nsetter(data.news);
 }
 
-function convertDate() {
+function convertMonthYear() {
     const dateObj = new Date();
     const month = dateObj.getMonth() + 1;
     let mstr = "";
@@ -34,6 +34,18 @@ function convertDate() {
     return mstr + " " + year;
 }
 
+function custom_date(d) {
+    const dat = new Date(d);
+    var custom_months = [ "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря" ];
+    var date = dat.getDate() + " " + custom_months[ dat.getMonth() ];
+    var time = dat.getHours() + ":" + dat.getMinutes();
+    if(dat.getMinutes()%10 === 0){
+        time += "0";
+    }
+    return  date + " " +time;
+}
+
+
 export default function NewsComponent(props){
     
     let [metaData, setMeta] = useState(0)
@@ -54,14 +66,14 @@ export default function NewsComponent(props){
         <div className="News">
             <div className='Head'>
                 <h1>Новости</h1>
-                <h3>{convertDate(newsData.minDatePublication)}</h3>
+                <h3>{convertMonthYear(newsData.minDatePublication)}</h3>
             </div>
             <hr className='headBorder'></hr>
             <div className='Content'> 
                 {newsData.map((content, index)=>(
                     <Elem key={index}
                         pic={content.cover.images.hd}
-                        publishedAt={content.publishedAt}
+                        publishedAt={custom_date(content.publishedAt)}
                         title={content.title}
                         rubrics={content.rubrics}
                         likeCount={content.likeCount}
