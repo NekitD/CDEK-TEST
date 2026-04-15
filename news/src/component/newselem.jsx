@@ -11,7 +11,6 @@ export default function NewsElem(props){
             </div>
         );
     }
-    console.log(props.rubrics)
     return (
         <div className="news-elem">
             <img className='news-elem__image' src={props.pic}/>
@@ -44,9 +43,9 @@ export default function NewsElem(props){
                         )}
                     </div>
                     <div className='news-elem__stats'>
-                        <button className='news-elem__like-btn'/>
+                        <div className='news-elem__like-btn'></div>
                         <text className='news-elem__like-count'>{props.likeCount}</text>
-                        <div className='news-elem__view-icon'/>
+                        <div className='news-elem__view-icon'></div>
                         <text className='news-elem__view-count'>{props.viewCount}</text>
                     </div>
                 </div>

@@ -48,6 +48,8 @@ function convertDate(d) {
 }
 
 export default function NewsComponent(props){
+
+    const API_BASE_URL = 'http://1e14c3489fcb.vps.myjino.ru:5000';
     
     let [metaData, setMeta] = useState(0)
     let [newsData, setNews] = useState([]);
@@ -65,7 +67,7 @@ export default function NewsComponent(props){
             <Loader/>
         </div>);
     }
-
+    console.log(newsData);
     return (
         <div className="news">
             <div className='news__header'>
@@ -78,7 +80,7 @@ export default function NewsComponent(props){
                     (!loading) ?
                         newsData.map((content, index)=>(
                         <Elem key={index}
-                            pic={content.cover.images[0].l}
+                            pic={API_BASE_URL + content.cover.images[0].l}
                             publishedAt={convertDate(content.publishedAt)}
                             title={content.title}
                             rubrics={content.rubrics}
