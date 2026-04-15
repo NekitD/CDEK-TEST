@@ -9,8 +9,8 @@ async function GetNews(msetter, nsetter, lsetter, lmsetter, page){
     const data = await answer.json();
     msetter(data);
     nsetter(data.news);
-    lsetter(data.news.length === 0);
-    lmsetter(data.length === 0);
+    lsetter(false);
+    lmsetter(false);
 }
 
 function convertMonthYear() {
@@ -51,13 +51,16 @@ export default function NewsComponent(props){
 
     const API_BASE_URL = 'http://1e14c3489fcb.vps.myjino.ru:5000';
     
-    let [metaData, setMeta] = useState(0)
+    let [metaData, setMeta] = useState(null)
     let [newsData, setNews] = useState([]);
     let [pageNum, setPage] = useState(1);
     let [loading, setLoad] = useState(true);
     let [mloading, setmLoad] = useState(true);
 
     useEffect(()=>{
+        setNews([]);
+        setLoad(true);
+        setmLoad(true);
         GetNews(setMeta, setNews, setLoad, setmLoad, pageNum);
     }, [pageNum]);
     
@@ -79,7 +82,7 @@ export default function NewsComponent(props){
                 {
                     (!loading) ?
                         newsData.map((content, index)=>(
-                        <Elem key={index}
+                        <Elem key={content.id || index}
                             pic={API_BASE_URL + content.cover.images[0].l}
                             publishedAt={convertDate(content.publishedAt)}
                             title={content.title}
