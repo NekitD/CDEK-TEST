@@ -70,7 +70,6 @@ export default function NewsComponent(props){
             <Loader/>
         </div>);
     }
-    console.log(newsData);
     return (
         <div className="news">
             <div className='news__header'>
