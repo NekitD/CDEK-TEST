@@ -47,7 +47,6 @@ function convertDate(d) {
     return  date + " " + time;
 }
 
-
 export default function NewsComponent(props){
     
     let [metaData, setMeta] = useState(0)
@@ -58,7 +57,7 @@ export default function NewsComponent(props){
 
     useEffect(()=>{
         GetNews(setMeta, setNews, setLoad, setmLoad, pageNum);
-    }, [metaData, newsData, loading. mloading]);
+    }, [pageNum]);
     
     if (mloading) {
         return (
@@ -79,7 +78,7 @@ export default function NewsComponent(props){
                     (!loading) ?
                         newsData.map((content, index)=>(
                         <Elem key={index}
-                            pic={content.cover.images.hd}
+                            pic={content.cover.images[0].hd}
                             publishedAt={convertDate(content.publishedAt)}
                             title={content.title}
                             rubrics={content.rubrics}
