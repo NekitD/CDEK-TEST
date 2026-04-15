@@ -42,7 +42,7 @@ export default function NewsComponent(props){
 
     useEffect(()=>{
         GetNews(setMeta, setNews, pageNum);
-    }, []);
+    }, [metaData, newsData]);
     if (newsData.length === 0) {
         return (
         <div className="News">
