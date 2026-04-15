@@ -24,7 +24,20 @@ export default function NewsElem(props){
                     <div className='news-elem__rubrics'>
                         {
                             (props.rubrics.map((rub, index)=>{
-                                return (<div className='news-elem__rub' key={index}>
+                                let slug = rub.slug;
+                                let bstr = (slug === "top") ? "gold" : "lightblue";
+                                bstr = (slug === "cdek-active") ? "lightgreen" : bstr;
+                                bstr = (slug === "school") ? "pink" : bstr;
+                                bstr = (slug === "skidki") ? "hsl(251, 76%, 76%)" : bstr;
+                                let stl = {
+                                    padding: '4px 8px',
+                                    borderRadius: '4px',
+                                    fontSize: '12px',
+                                    color: '#666',
+                                    backgroundColor: bstr
+                                }
+                                return (<div className='news-elem__rub' style={stl} 
+                                    key={index}>
                                     {rub.name}
                                 </div>)
                             })
